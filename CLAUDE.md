@@ -106,7 +106,7 @@ npx shadcn@latest add <name>   # shadcn/ui 컴포넌트를 src/components/ui/ �
 - 클래스 병합은 `@/lib/utils`의 `cn()`(clsx + tailwind-merge)을 쓴다.
 - shadcn 컴포넌트는 `style: "radix-nova"`, `baseColor: "neutral"`(`components.json`)로 생성된다. `src/components/ui/`는 프로젝트 소유라 직접 고쳐도 된다.
 - **`shadcn add`로 받은 파일은 `cn`을 `cn` 패키지에서 import하고 그 의존성도 설치한다**(4.23.0에서 확인). import를 모두 `@/lib/utils`로 바꾼 뒤 `npm uninstall cn`을 한다. 기존 `ui/` 파일을 덮어쓸지 물으면 거절한다.
-- 쓰지 않는 export(`buttonVariants` 등)와 sidebar·chart 토큰은 지운 상태다. 받은 컴포넌트가 찾으면 `git show e0ce006^:<파일>`에서 되살린다. 토큰은 빠져도 tsc에 걸리지 않는다.
+- 쓰지 않는 export(`buttonVariants` 등)와 sidebar·chart 토큰은 지운 상태다. 받은 컴포넌트가 찾으면 원본 스타터 저장소에서 지우기 직전 커밋을 받아 되살린다: `git fetch https://github.com/hhyukk/claude-nextjs-starters.git 33019e7b717f3005a9fb2570721eefb35969aaa6` 후 `git show FETCH_HEAD:<파일>`. 이 저장소는 스타터 히스토리 없이 시작해서 그 커밋이 로컬에 없다. 토큰은 빠져도 tsc에 걸리지 않는다.
 
 ## 코드 컨벤션
 
